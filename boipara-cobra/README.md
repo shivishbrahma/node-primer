@@ -1,0 +1,18 @@
+# Boipara
+
+A json based GET, PUT, POST and DELETE REST API built on Node and Express.
+
+A custom json handler module built on Js named Cobra.js that handles requests with native functions built
+
+- find
+- findAll
+- findOne
+- save
+- updateOne
+- search
+- deleteOne
+- saveFile
+
+The file extension for storing json is .jsdb.
+
+CobraJs - An JSON DB Handler for Node Express Application

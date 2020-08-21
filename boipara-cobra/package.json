@@ -1,0 +1,29 @@
+{
+  "name": "boipara",
+  "version": "1.0.0",
+  "description": "A simple JSON queried database architecture to store entries of books",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "keywords": [
+    "book",
+    "json",
+    "node",
+    "express"
+  ],
+  "author": "shivishbrahma",
+  "license": "MIT",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-handlebars": "^4.0.5",
+    "handlebars": "^4.7.6",
+    "handlebars-helpers": "^0.10.0",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.4",
+    "uniqid": "^5.2.0"
+  }
+}

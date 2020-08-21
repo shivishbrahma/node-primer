@@ -1,0 +1,43 @@
+html,
+body {
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  padding: 0;
+  -webkit-box-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+header,
+footer {
+  flex-shrink: 0;
+  border-radius: 0px;
+}
+
+.mdi {
+  position: relative;
+  // top: 0.25rem;
+}
+
+.navbar {
+  .navbar-nav {
+    margin-top: 0.5rem;
+  }
+  .dropdown-item:hover {
+    background-color: var(--blue);
+  }
+}
+
+.search-bar {
+  border: 2px solid var(--orange);
+  &:focus-within {
+    border: 2px solid var(--cyan);
+  }
+  .form-control:focus {
+    box-shadow: none;
+  }
+}

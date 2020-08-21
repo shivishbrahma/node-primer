@@ -1,0 +1,52 @@
+html,
+body {
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main {
+  padding: 0;
+  -webkit-box-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+header,
+footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  border-radius: 0px;
+}
+
+.mdi {
+  position: relative;
+}
+
+.navbar .navbar-nav {
+  margin-top: 0.5rem;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: var(--blue);
+}
+
+.search-bar {
+  border: 2px solid var(--orange);
+}
+
+.search-bar:focus-within {
+  border: 2px solid var(--cyan);
+}
+
+.search-bar .form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/*# sourceMappingURL=master.css.map */
