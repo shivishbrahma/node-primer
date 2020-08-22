@@ -1,12 +1,16 @@
 // Import essentials
 const express = require("express");
 const exphbs = require("express-handlebars");
+const handlebars = require("handlebars");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const {
+  allowInsecurePrototypeAccess,
+} = require("@handlebars/allow-prototype-access");
 
 require("dotenv").config();
 const user = require("./routes/user");
@@ -30,11 +34,11 @@ app.use(cookieParser());
 
 // Defining Handlebars Configuration
 const hbs = exphbs.create({
+  handlebars: allowInsecurePrototypeAccess(handlebars),
   extname: "hbs",
   defaultLayout: "main",
   layoutsDir: path.join(__dirname, "/views", "/layouts"),
   partialsDir: path.join(__dirname, "/views", "/partials"),
-  // helpers: helpers(),
 });
 
 // Static folder
