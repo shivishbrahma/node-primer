@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaturana</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+    {{> header}}
+    <main>
+        {{{ body }}}
+    </main>
+
+    {{> footer }}
+
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/mdb.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $('.search-bar .search-btn').click(function () {
+                console.log("hello");
+                location.href = "/book/search/" + $(this).parent().parent().find("input[type='search']").val();
+            });
+        });
+
+    </script>
+</body>
+
+</html>
