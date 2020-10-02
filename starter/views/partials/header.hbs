@@ -1,0 +1,92 @@
+<header class='red darken-3'>
+  <nav class='navbar navbar-expand-sm navbar-dark' style='margin-top: -0.5rem;'>
+    <div class='container'>
+      <a class='navbar-brand' href='#'>
+        <i class='mdi mdi-laptop mdi-24px'></i>
+        Title
+      </a>
+      <button
+        class='navbar-toggler d-lg-none'
+        type='button'
+        data-toggle='collapse'
+        data-target='#collapsibleNavId'
+        aria-controls='collapsibleNavId'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      >
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='collapsibleNavId'>
+        <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
+          <li class='nav-item active'>
+            <a class='nav-link' href='/'>
+              Home
+              <span class='sr-only'>
+                (current)
+              </span>
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+      <ul class='navbar-nav ml-auto'>
+        <li class='nav-item dropdown'>
+          {{#if user}}
+            <a
+              class='nav-link dropdown-toggle'
+              href='#'
+              id='profileDropdown'
+              data-toggle='dropdown'
+              aria-haspopup='true'
+              aria-expanded='false'
+            >
+              {{user.name}}
+            </a>
+            <div
+              class='dropdown-menu red lighten-2'
+              aria-labelledby='profileDropdown'
+            >
+              <a class='dropdown-item text-white p-0' href='/auth/login'>
+                <form
+                  action='/auth/logout'
+                  method='post'
+                  style='max-width: 50px;'
+                >
+                  <button class='btn btn-link m-0' type='submit'>
+                    Logout
+                  </button>
+                </form>
+              </a>
+            </div>
+          {{else}}
+            <a
+              class='nav-link dropdown-toggle'
+              href='#'
+              id='startedDropdown'
+              data-toggle='dropdown'
+              aria-haspopup='true'
+              aria-expanded='false'
+            >
+              User
+            </a>
+            <div
+              class='dropdown-menu red lighten-2'
+              aria-labelledby='startedDropdown'
+            >
+              <a class='dropdown-item text-white' href='/auth/login'>
+                Login
+              </a>
+              <a class='dropdown-item text-white' href='/auth/register'>
+                Register
+              </a>
+            </div>
+          {{/if}}
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
