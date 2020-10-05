@@ -8,5 +8,5 @@ Basic Node Projects with Express Js
 - [ ] Collaborative Drawing App
 - [ ] Email Sender
 - [ ] Video Streaming Platform
-- [ ] Web Scrapper
+- [ ] Web Scrapper - (Makoralika) - 
 
