@@ -4,14 +4,14 @@ A json based GET, PUT, POST and DELETE REST API built on Node and Express.
 
 A custom json handler module built on Js named Cobra.js that handles requests with native functions built
 
-- find
-- findAll
-- findOne
-- save
-- updateOne
-- search
-- deleteOne
-- saveFile
+- [x] find
+- [x] findAll
+- [x] findOne
+- [x] save
+- [x] updateOne
+- [x] search
+- [x] deleteOne
+- [x] saveFile
 
 The file extension for storing json is .jsdb.
 
