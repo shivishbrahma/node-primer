@@ -9,8 +9,8 @@ async function getQuotes() {
 	const qel = $("img.p-qotd");
 	const quote = {};
 	quote.brainyquote = {};
-	patt = /([\w\W ]+) - ([\w\W ]+)/;
-	qotd = qel.attr("alt").match(patt);
+	let patt = /([\w\W ]+) - ([\w\W ]+)/;
+	const qotd = qel.attr("alt").match(patt);
 	quote.brainyquote.quote_of_the_day = { quote: qotd[1], author: qotd[2] };
 	const qels = $("a.b-qt").slice(0, 5);
 	const aels = $("a.bq-aut").slice(0, 5);
@@ -38,6 +38,22 @@ async function getQuotes() {
 	return quote;
 }
 
-async function getQuotesByTag(tag) {}
+async function getQuotesByTag(tag) {
+	const { data } = await Axios.get(
+		`https://www.brainyquote.com/search_results?q=${tag}`
+	);
+	const $ = cheerio.load(data);
+	const qels = $("a.b-qt");
+	const aels = $("a.bq-aut");
+	const quote = {};
+	quote.brainyquote = [];
+	for (let i = 0; i < qels.length; i++) {
+		quote.brainyquote.push({
+			quote: $(qels[i]).text(),
+			author: $(aels[i]).text(),
+		});
+	}
+	return quote;
+}
 
 module.exports = { getQuotes, getQuotesByTag };

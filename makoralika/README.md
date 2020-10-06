@@ -4,5 +4,9 @@ Web Crawler cum API
 
 - [ ] Quotes
   - [x] Brainly Quote
-- [ ] Lyrics
-  - [ ] Genius
+  - [ ] Wikiquote
+- [x] Lyrics
+  - [x] Genius
+  - [x] Musixmatch
+- [x] Calendar
+- [ ] Jokes
