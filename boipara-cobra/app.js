@@ -1,5 +1,6 @@
 // Import Modules
 const express = require('express');
+const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const helpers = require('handlebars-helpers');
 const fileUpload = require('express-fileupload');
@@ -15,6 +16,9 @@ app.use(express.json());
 
 // Method Override Middelware
 app.use(methodOverride('_method'));
+
+// Add morgan Logger
+app.use(morgan('dev'));
 
 // File Upload Middleware
 app.use(
@@ -46,13 +50,19 @@ const book = require('./routes/book');
 // Use Routes
 app.use('/book', book);
 
+app.get('/about', function(req, res, next) {
+    res.render('about');
+});
+
 // Routes
 app.get('/', function(req, res, next) {
     res.render('home');
 });
 
+
+
 const PORT = process.env.PORT || 4100;
 
 app.listen(PORT, () =>
-    console.log(`Server started on port ${PORT}\nhttp://localhost:${PORT}`),
+    console.log(`Server started on port ${PORT}: http://localhost:${PORT}`),
 );
