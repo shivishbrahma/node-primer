@@ -7,6 +7,8 @@ const fileUpload = require('express-fileupload');
 const path = require('path');
 const methodOverride = require('method-override');
 
+require("dotenv").config();
+
 // Express App
 const app = express();
 

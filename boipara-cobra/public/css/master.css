@@ -30,24 +30,21 @@ footer {
   top: 0.25rem;
 }
 
-.navbar .navbar-brand {
-  margin-top: -0.5rem;
-}
-
-.navbar .navbar-nav {
-  margin-top: 0.5rem;
+.navbar .navbar-brand-logo {
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .navbar .dropdown-item:hover {
-  background-color: var(--orange);
+  background-color: var(--bs-primary);
 }
 
 .search-bar {
-  border: 2px solid var(--orange);
+  border: 2px solid var(--bs-secondary);
 }
 
 .search-bar:focus-within {
-  border: 2px solid var(--cyan);
+  border: 2px solid var(--bs-primary);
 }
 
 .search-bar .form-control:focus {
