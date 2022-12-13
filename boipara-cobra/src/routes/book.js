@@ -64,10 +64,10 @@ router.post("/add", (req, res) => {
             newBook[i] = uniqid().substring(10, 18) + req.files[i].name;
             let uploadPath = "";
             if (i == "cover") {
-                uploadPath = "../public/uploads/cover/";
+                uploadPath = path.join(__dirname, "..", "..", "public", "uploads", "cover");
             }
             if (i == "bfile") {
-                uploadPath = "../public/uploads/files/";
+                uploadPath = path.join(__dirname, "..", "..", "public", "uploads", "files");
             }
             req.files[i]
                 .mv(path.join(__dirname, uploadPath) + newBook[i])
@@ -111,10 +111,10 @@ router.put("/edit/:id", (req, res) => {
                 options[i] = uniqid().substring(10, 18) + req.files[i].name;
                 let uploadPath = "";
                 if (i == "cover") {
-                    uploadPath = "../public/uploads/cover/";
+                    uploadPath = path.join(__dirname, "..", "..", "public", "uploads", "cover");
                 }
                 if (i == "bfile") {
-                    uploadPath = "../public/uploads/files/";
+                    uploadPath = path.join(__dirname, "..", "..", "public", "uploads", "files");
                 }
                 req.files[i]
                     .mv(path.join(__dirname, uploadPath) + options[i])

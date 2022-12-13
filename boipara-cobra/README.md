@@ -4,6 +4,7 @@ A json based GET, PUT, POST and DELETE REST API built on Node and Express.
 
 A custom json handler module built on Js named Cobra.js that handles requests with native functions built
 
+- [x] loadFile - load json object from data json file specified
 - [x] find
 - [x] findAll
 - [x] findOne
