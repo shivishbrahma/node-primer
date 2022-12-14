@@ -3,7 +3,7 @@
 
         <div class="container">
             <a class="navbar-brand" href="#">
-              <img class="navbar-brand-logo" src="/images/icon.png" alt="brand-logo">
+                <img class="navbar-brand-logo" src="/images/icon.png" alt="brand-logo">
               Boipara
             </a>
             <button
@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse" id="collapsibleNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
+                        <a class="nav-link{% if nav_active == 'home' %} active{% endif %}" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link{% if nav_active == 'about' %} active{% endif %}" href="/about">About</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a

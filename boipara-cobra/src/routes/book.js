@@ -10,37 +10,45 @@ const Book = new Cobra("../data/books.jsdb");
 // Get all books
 router.get("/search", (req, res) => {
     Book.find()
-        .then((book) => {
-            res.render("book/search", { book: book });
+        .then((books) => {
+            res.render("book/search.nj", { books, query: "" });
         })
-        .catch((err) => {});
+        .catch((err) => {
+            console.error(err);
+        });
 });
 
 // Get books by query which is search over title and query string
 router.get("/search/:q", (req, res) => {
     Book.search(req.params.q, ["title", "query"])
-        .then((book) => {
-            res.render("book/search", { book: book, query: req.params.q });
+        .then((books) => {
+            res.render("book/search.nj", {
+                books,
+                query: req.params.q,
+                nav_active: "book.search",
+            });
         })
-        .catch((err) => {});
+        .catch((err) => {
+            console.error(err);
+        });
 });
 
 // Load Book Add Form
 router.get("/add", (req, res) => {
-    res.render("book/add");
+    res.render("book/add.nj", { nav_active: "book.add" });
 });
 
 // Show Book Details
 router.get("/show/:id", (req, res) => {
     Book.findOne({ _id: req.params.id }).then((book) => {
-        res.render("book/show", { book: book });
+        res.render("book/show.nj", { book: book, nav_active: "book.show" });
     });
 });
 
 // Edit Book By Id
 router.get("/edit/:id", (req, res) => {
     Book.findOne({ _id: req.params.id }).then((book) => {
-        res.render("book/edit", { book: book });
+        res.render("book/edit.nj", { book: book, nav_active: "book.edit" });
     });
 });
 

@@ -1,11 +1,10 @@
 // Import Modules
 const express = require("express");
 const morgan = require("morgan");
-const exphbs = require("express-handlebars");
-const helpers = require("handlebars-helpers");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 const methodOverride = require("method-override");
+const nunjucks = require("nunjucks");
 
 require("dotenv").config();
 
@@ -33,23 +32,11 @@ app.use(
     })
 );
 
-// Defining Handlebars Configuration
-const hbs = exphbs.create({
-    extname: "hbs",
-    defaultLayout: "base",
-    layoutsDir: path.join(__dirname, "views", "layouts"),
-    partialsDir: path.join(__dirname, "views", "partials"),
-    helpers: helpers(),
-});
-
-// console.log(hbs.config);
+// Defining Nunjuck configuration
+nunjucks.configure(path.resolve(__dirname, "views"), { autoscape: true, express: app });
 
 // Static folder
 app.use(express.static(path.join(__dirname, "..", "public")));
-
-app.engine("hbs", hbs.engine);
-app.set("view engine", "hbs");
-app.set("views", path.resolve(__dirname, "views"));
 
 // Load Routes
 const book = require("./routes/book");
@@ -58,14 +45,20 @@ const book = require("./routes/book");
 app.use("/book", book);
 
 app.get("/about", function (req, res, next) {
-    res.render("about");
+    res.render("about.nj", { nav_active: "about" });
 });
 
 // Routes
 app.get("/", function (req, res, next) {
-    res.render("home");
+    res.render("home.nj", { nav_active: "home" });
+});
+
+app.use(function (req, res) {
+    res.status(404).render("error/404.nj");
 });
 
 const PORT = process.env.PORT || 4100;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}: http://localhost:${PORT}`));
+
+module.exports = app;

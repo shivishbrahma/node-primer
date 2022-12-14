@@ -1,0 +1,69 @@
+{% extends "../layouts/base.nj" %}
+
+{% block title %}Edit Book - Boipara{% endblock %}
+
+{% block content %}
+    <section class="add_book">
+        <div class="container py-3">
+            <h1>Edit Book</h1>
+            <form action="/book/edit/{{book._id}}?_method=PUT" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Enter the book title"
+                    value="{{book.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="lang">Language</label>
+                    <input type="text" class="form-control" name="lang" id="lang" placeholder="Enter the book language"
+                    value="{{book.lang}}">
+                </div>
+                <div class="form-group">
+                    <label for="authors">Authors</label>
+                    <input type="text" class="form-control" name="authors" id="authors" placeholder="Enter the authors"
+                    value="{{book.authors| join(",")}}">
+                </div>
+                <div class="form-group">
+                    <label for="pub">Publishers</label>
+                    <input type="text" class="form-control" name="pub" id="pub" placeholder="Enter the publishers"
+                    value="{{book.pub}}">
+                </div>
+                <div class="form-group">
+                    <label for="num_pages">No of pages</label>
+                    <input type="number" class="form-control" name="num_pages" id="num_pages"
+                    placeholder="Enter the no. of pages" min="0" value="{{book.num_pages}}">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" name="price" id="price" placeholder="Enter the price" min="0"
+                    value="{{book.price}}">
+                </div>
+                <div class="form-group">
+                    <label for="edition">Edition</label>
+                    <input type="text" class="form-control" name="edition" id="edition" placeholder="Enter the edition"
+                    value="{{book.edition}}">
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="number" class="form-control" name="isbn" id="isbn" placeholder="Enter the book ISBN"
+                    minlength="13" maxlength="13" value="{{book.isbn}}">
+                </div>
+                <div class="form-group">
+                    <label for="query">Query</label>
+                    <input type="text" class="form-control" name="query" id="query" placeholder="Enter the query"
+                    value="{{book.query}}">
+                </div>
+                <div class="form-group">
+                    <label for="cover">Cover</label>
+                    <input type="file" class="form-control" name="cover" id="cover" placeholder="Enter the cover image">
+                </div>
+                <div class="form-group">
+                    <label for="bfile">File Name</label>
+                    <input type="file" class="form-control" name="bfile" id="bfile" placeholder="Enter the book file name">
+                </div>
+                <div class="btn-container mt-2">
+                    <button class="btn btn-success rounded-pill" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

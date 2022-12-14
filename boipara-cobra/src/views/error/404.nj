@@ -1,0 +1,13 @@
+{% extends "../layouts/base.nj" %}
+
+{% block title %}404 - Boipara{% endblock %}
+
+{% block content %}
+    <section class="error-container container-fluid h-100">
+        <div class="d-flex flex-column align-items-center justify-content-center h-100">
+            <h1>404</h1>
+            <p>Sorry, page not found! Go Back to <a href="/">Home</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}
